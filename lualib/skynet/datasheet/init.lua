@@ -11,9 +11,7 @@ end)
 local datasheet = {}
 local sheets = setmetatable({}, {
 	__gc = function(t)
-		for _,v in pairs(t) do
-			skynet.send(datasheet_svr, "lua", "release", v.handle)
-		end
+		skynet.send(datasheet_svr, "lua", "close")
 	end,
 })
 
@@ -32,7 +30,7 @@ local function updateobject(name)
 		core.update(t.object, newhandle)
 		t.handle = newhandle
 		skynet.send(datasheet_svr, "lua", "release", handle)
-		skynet.fork(monitor)
+		return monitor()
 	end
 	skynet.fork(monitor)
 end
