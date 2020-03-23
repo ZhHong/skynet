@@ -64,4 +64,5 @@ set( lualib_SRC
     lua-datasheet.c
     lua-sharetable.c
     )
-add_library(skynet SHARED ${lualib_SRC} )
+add_library(skynet-shared SHARED ${lualib_SRC} )
+set_target_properties(skynet-shared PROPERTIES OUTPUT_NAME "skynet")

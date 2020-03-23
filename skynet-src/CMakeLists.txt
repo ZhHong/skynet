@@ -18,7 +18,7 @@ set(SKYNET_SRC
         )
 set(CMAKE_VERBOSE_MAKEFILE ON)#show compile command in console
 
-set(TARGET_EXE nebula)
+set(TARGET_EXE skynet-exe)
 set(EXECUTABLE_OUTPUT_PATH  ${PROJECT_SOURCE_DIR})#set executable output path
 
 include_directories(
@@ -38,7 +38,7 @@ message(STATUS "jemalloc_pic found in " ${JEMALLOC_LIB})
 
 
 add_executable(${TARGET_EXE} ${SKYNET_SRC})
-
+set_target_properties(${TARGET_EXE} PROPERTIES OUTPUT_NAME "skynet")
 
 link_directories(
         ${PROJECT_SOURCE_DIR}/3rd/lua
