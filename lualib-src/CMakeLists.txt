@@ -45,6 +45,10 @@ add_library(lpeg SHARED
         ../3rd/lpeg/lpvm.c
         )
 
+add_library(ltls SHARED
+        ltls.c
+        )
+
 # skynet.so
 set( lualib_SRC
     lua-skynet.c
